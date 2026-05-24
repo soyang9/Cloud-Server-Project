@@ -16,55 +16,92 @@ Server details:
 
 After creating the virtual machine, I connected to the server using SSH from Windows PowerShell.
 
-Example command:
-
+Command:
 ```bash
 ssh -i "C:\Users\sonam171\.ssh\Sonamstd_key.pem" azureuser@20.5.42.159
-
+```
 
 ## 3. Updating the Ubuntu Server
 
 After logging into the server, I updated the package list using:
-
 ```bash
 sudo apt update
+```
 
-
-## STEP 4: Add Nginx installation
-
-Paste this:
-
-```markdown
-## 4. Installing Nginx Web Server
-
-I installed Nginx to host my website online.
-
+## 4: Add Nginx installation, Installing Nginx Web Server
+I installed Nginx to host my website online using:
 ```bash
 sudo apt install nginx -y
+```
 
-
-## STEP 5: Add Nginx check
-
-Paste this:
-
-```markdown
-## 5. Checking Nginx Status
+### 5. Checking Nginx Status
 
 I checked that Nginx was running using:
-
 ```bash
 sudo systemctl status nginx
+```
+
+## STEP 6: Add website file location, Website File Location
+The website files were stored in the default Nginx web directory: ```/var/www/html/ ```
+The main homepage file was: index.html
+
+I edited the homepage using: ```bash sudo nano /var/www/html/index.html ```
+
+## 7. DNS Configuration
+
+I connected my domain name to the Azure public IP address using Namecheap DNS settings.
+
+Domain name:
+
+```text
+www.sonamict171.com
+```
+Public IP address:
+```text
+20.5.42.159
+```
+An A Record was created so that the domain name points to the Azure virtual machine.
+
+## 8. Testing the Website
+After configuring DNS, I tested the website using a web browser.
+
+I confirmed that the website was accessible:
+
+```text
+http://www.sonamict171.com
+```
+I also tested the website using the Azure public IP address.
+
+## 9. Website Development
+
+The website was developed using:
+
+- HTML
+- CSS
+- PHP
+
+The website contains:
+
+- Home page
+- Maintenance form page
+- Submitted issues page
+- Server information page
+- License page
+
+## 10. Script / Code Example
+
+Example: HTML navigation code used in the website:
+
+```html
+<a href="index.html">Home</a> |
+<a href="form.html">Maintenance Form</a> |
+<a href="issues.html">Submitted Issues</a> |
+<a href="server.html">Server Information</a> |
+<a href="license.html">License</a>
+```
+This HTML code creates the navigation menu for the website and allows users to move between different pages of the maintenance service system.
+
+The website was developed using HTML and CSS and php and hosted on an Azure Ubuntu Linux virtual machine using the Nginx web server.
 
 
-## STEP 6: Add website file location
-
-Paste this:
-
-```markdown
-## 6. Website File Location
-
-The website files were stored in the default Nginx web directory:
-
-```bash
-/var/www/html/
 
