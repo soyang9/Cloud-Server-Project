@@ -22,11 +22,6 @@ Example command:
 ssh -i "C:\Users\sonam171\.ssh\Sonamstd_key.pem" azureuser@20.5.42.159
 
 
-## STEP 3: Add update command
-
-Paste this:
-
-```markdown
 ## 3. Updating the Ubuntu Server
 
 After logging into the server, I updated the package list using:
