@@ -83,10 +83,10 @@ The website was developed using:
 The website contains:
 
 - Home page
-- Maintenance form page
-- Submitted issues page
+- Maintenance page #reporting maintainance for the users and managing the reported issues by the admin(maintainance team)
 - Server information page
 - License page
+- Contact Us page
 
 ## 10. Script / Code Example
 
@@ -94,14 +94,14 @@ Example: HTML navigation code used in the website:
 
 ```html
 <a href="index.html">Home</a> |
-<a href="form.html">Maintenance Form</a> |
-<a href="issues.html">Submitted Issues</a> |
-<a href="server.html">Server Information</a> |
+<a href="login.php">Maintenance</a> |
+<a href="server_info.html">Server Information</a> |
 <a href="license.html">License</a>
+<a href="contact">Contact Us</a>
 ```
 This HTML code creates the navigation menu for the website and allows users to move between different pages of the maintenance service system.
 
-The website was developed using HTML and CSS and php and hosted on an Azure Ubuntu Linux virtual machine using the Nginx web server.
+The website was developed using HTML and CSS and php(8.3) and hosted on an Azure Ubuntu Linux virtual machine using the Nginx web server.
 
 
 
