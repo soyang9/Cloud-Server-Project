@@ -50,7 +50,7 @@ Before installing software, package list was updated using:
 sudo apt update
 ```
 
-### 4: Add Nginx installation, Installing Nginx Web Server
+### 4. Installation of Nginx Web Server
 Nginx was installed, so that i could host my website online using command:
 ```bash
 sudo apt install nginx -y
@@ -62,13 +62,13 @@ Following command was used to check wether Nginx was running or not:
 sudo systemctl status nginx
 ```
 
-### STEP 6: Website File Location
+### 6. Website File Location
 All the website files were stored in the default Nginx web directory: ```/var/www/html/ ```
 The main homepage file was: index.html
 
 I edited the homepage using: ```bash sudo nano /var/www/html/index.html ```
 
-## 7. DNS Configuration
+### 7. DNS Configuration
 Domain name was connected to the public IP address of Azure using Namecheap DNS.
 
 Domain name: 
