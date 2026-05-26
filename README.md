@@ -7,11 +7,11 @@
 **Public IP Address:** http://20.5.42.159
 **Domain Name:** www.sonamict171.com
 
-## 1. Project Overview
+## Project Overview
 - This project is a Cloud-based Maintenance Service System hosted using Microsoft Azure where users can submit maintenance issues online, example: broken lights, AC repair or any other maintenance isuues.
 - It focuses on cloud deployment and infrastracture as a service(IaaS).
 
-## 2. Technologies Used
+##  Technologies Used
 - Microsoft Azure
 - Ubuntu Linux
 - Nginx Web Server
@@ -22,59 +22,56 @@
 - GitHub
 
 ## Server Setup
-### 1. Creating the Azure Virtual Machine
-
-I created a cloud server using Microsoft Azure Infrastructure as a Service (IaaS).  
-The server was created as an Ubuntu Linux virtual machine.
-
-Server details:
+### 1. Deployment of Azure Virtual Machine
+- Using Microsoft Azure, an Ubuntu Linux virtual machine was created.
+- Virtual machine was configured manually to host the website and provide remote administration access through SSH.
+  
+#### Virtual Machine Configuration details
 - Cloud provider: Microsoft Azure
 - Operating system: Ubuntu Linux 24.04
-- Server type: Virtual Machine
+- Web Server Software: Nginx
+- Remote Access Method: SSH
 - Public IP address: 20.5.42.159
 - Domain name: www.sonamict171.com
 
-## 2. Connecting to the Server Using SSH
+### 2. Connecting to the Server Using SSH
+Connection to the cloud server was completed using SSH through Windows PowerShell.
 
-After creating the virtual machine, I connected to the server using SSH from Windows PowerShell.
-
-Command:
+Command used:
 ```bash
 ssh -i "C:\Users\sonam171\.ssh\Sonamstd_key.pem" azureuser@20.5.42.159
 ```
+This command allows secure command-line access to the server for configuration and administration roles.
 
-## 3. Updating the Ubuntu Server
+### 3. Updating the Ubuntu Server
 
-After logging into the server, I updated the package list using:
+Before installing software, package list was updated using:
 ```bash
 sudo apt update
 ```
 
-## 4: Add Nginx installation, Installing Nginx Web Server
-I installed Nginx to host my website online using:
+### 4: Add Nginx installation, Installing Nginx Web Server
+Nginx was installed, so that i could host my website online using command:
 ```bash
 sudo apt install nginx -y
 ```
 
 ### 5. Checking Nginx Status
-
-I checked that Nginx was running using:
+Following command was used to check wether Nginx was running or not:
 ```bash
 sudo systemctl status nginx
 ```
 
-## STEP 6: Add website file location, Website File Location
-The website files were stored in the default Nginx web directory: ```/var/www/html/ ```
+### STEP 6: Website File Location
+All the website files were stored in the default Nginx web directory: ```/var/www/html/ ```
 The main homepage file was: index.html
 
 I edited the homepage using: ```bash sudo nano /var/www/html/index.html ```
 
 ## 7. DNS Configuration
+Domain name was connected to the public IP address of Azure using Namecheap DNS.
 
-I connected my domain name to the Azure public IP address using Namecheap DNS settings.
-
-Domain name:
-
+Domain name: 
 ```text
 www.sonamict171.com
 ```
@@ -84,8 +81,8 @@ Public IP address:
 ```
 An A Record was created so that the domain name points to the Azure virtual machine.
 
-## 8. Testing the Website
-After configuring DNS, I tested the website using a web browser.
+### 8. Testing the Website
+After configuring DNS, my website was tested using a web browse.
 
 I confirmed that the website was accessible:
 
@@ -94,7 +91,7 @@ http://www.sonamict171.com
 ```
 I also tested the website using the Azure public IP address.
 
-## 9. Website Development
+### 9. Website Development
 
 The website was developed using:
 
@@ -110,7 +107,7 @@ The website contains:
 - License page
 - Contact Us page
 
-## 10. Script / Code Example
+### 10. Script / Code Example
 
 Example: HTML navigation code used in the website:
 
