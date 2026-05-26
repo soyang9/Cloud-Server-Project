@@ -3,28 +3,28 @@
 **Student Name:** Sonam Yangchen
 **Student ID:** 35867346
 
-## Website Links
+### Website Links
 **Public IP Address:** http://20.5.42.159
 **Domain Name:** www.sonamict171.com
 
-## Project Overview
--This project is a Cloud-based Maintenance Service System hosted using Microsoft Azure where users can submit maintenance issues online, example: broken lights, AC repair or any other maintenance isuues.
--It focuses on cloud deployment and infrastracture as a service(IaaS).
+## 1. Project Overview
+- This project is a Cloud-based Maintenance Service System hosted using Microsoft Azure where users can submit maintenance issues online, example: broken lights, AC repair or any other maintenance isuues.
+- It focuses on cloud deployment and infrastracture as a service(IaaS).
 
-## Technologies Used
+## 2. Technologies Used
 - Microsoft Azure
 - Ubuntu Linux
 - Nginx Web Server
 - HTML
 - CSS
 - PHP 8.3
-- DNS / Domain Configuration
+- DNS / Domain Configuration (Namecheap)
 - GitHub
 
 ## Server Setup 
 
 
-## Project- Cloud-based Maintenance Service System
+
 
 ## 1. Creating the Azure Virtual Machine
 
