@@ -21,12 +21,8 @@
 - DNS / Domain Configuration (Namecheap)
 - GitHub
 
-## Server Setup 
-
-
-
-
-## 1. Creating the Azure Virtual Machine
+## Server Setup
+### 1. Creating the Azure Virtual Machine
 
 I created a cloud server using Microsoft Azure Infrastructure as a Service (IaaS).  
 The server was created as an Ubuntu Linux virtual machine.
