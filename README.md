@@ -47,12 +47,14 @@ It focuses on cloud deployment and infrastracture as a service(IaaS).
 13. Click **Review + create** → **Create
 
 #### Step 2 - Connecting to the Server using SSH
-Connection to the cloud server was completed using SSH through Windows PowerShell.
-Command used:
-```bash
+- Connection to the cloud server was completed using SSH through Windows PowerShell.
+- Command used:
+---bash
 ssh -i "C:\Users\sonam171\.ssh\Sonamstd_key.pem" azureuser@20.5.42.159
-```
+---
+
 This command allows secure command-line access to the server for configuration and administration roles.
+
 <img width="1205" height="763" alt="image" src="https://github.com/user-attachments/assets/f66da83d-abad-43b5-98a7-75ea0b102495" />
                             **Steps**
 1. Open Terminal / PowerShell → go to folder where you saved `.pem` key
@@ -85,7 +87,7 @@ sudo apt install php8.3 php8.3-fpm -y
 1. Config file location
   ---bash
    /etc/nginx/sites-available/default
-   
+---
   
 
 
