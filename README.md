@@ -29,7 +29,7 @@ It focuses on cloud deployment and infrastracture as a service(IaaS).
 
 ## TECHNICAL DOCUMENTATION
 ### Server Setup (Azure Portal and SSH Terminal)
-### Step 1 - Create Virtual Machine in Azure
+#### Step 1 - Create Virtual Machine in Azure
 1. Log in as Student in to Azure Portal: https://portal.azure.com.
 2. Search for **Virtual Machines** → Click **Create → Virtual machine**
 3. **Subscription:** Select **Azure for Students**
@@ -53,27 +53,41 @@ Command used:
 ssh -i "C:\Users\sonam171\.ssh\Sonamstd_key.pem" azureuser@20.5.42.159
 ```
 This command allows secure command-line access to the server for configuration and administration roles.
+<img width="1205" height="763" alt="image" src="https://github.com/user-attachments/assets/f66da83d-abad-43b5-98a7-75ea0b102495" />
                             **Steps**
 1. Open Terminal / PowerShell → go to folder where you saved `.pem` key
 2. Copy the path.
 3. Run command:
 ---bash
-ssh -i "key.pem(folder path)" azureuser@ip address
+ssh -i "key.pem(folder path)" azureuser@server ip address
 ---
-<img width="1205" height="763" alt="image" src="https://github.com/user-attachments/assets/f66da83d-abad-43b5-98a7-75ea0b102495" />
-
-
+4. Now you are logged into your cloud server.
+   
 #### Step 3 - Installation of required Software
 -**Update system**
 ---bash
 sudo apt update
 ---
--**Install Nginx**
+<img width="1182" height="426" alt="image" src="https://github.com/user-attachments/assets/7101e983-e28c-411d-9c3c-3e46ef0b5f78" />
+
+-**Install Nginx web server**
 ---bash
 sudo apt install nginx-full -y
 ---
+<img width="758" height="140" alt="image" src="https://github.com/user-attachments/assets/cd8bfc1d-8c56-41ea-a853-05530fbf9a1d" />
+
 **Install PHP 8.3 to run scripts**
+---bash
 sudo apt install php8.3 php8.3-fpm -y
+---
+
+#### Step 4 - Nginx Configutation.
+- Config file location:
+  ---bash
+  /etc/nginx/sites-available/default
+  ---
+
+
 
 Deployment of Azure Virtual Machine
 - Using Microsoft Azure, an Ubuntu Linux virtual machine was created.
