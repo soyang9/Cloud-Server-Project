@@ -64,28 +64,29 @@ ssh -i "key.pem(folder path)" azureuser@server ip address
 4. Now you are logged into your cloud server.
    
 #### Step 3 - Installation of required Software
--**Update system**
+1. Update system
 ---bash
 sudo apt update
 ---
 <img width="1182" height="426" alt="image" src="https://github.com/user-attachments/assets/7101e983-e28c-411d-9c3c-3e46ef0b5f78" />
 
--**Install Nginx web server**
+2. Install Nginx web server
 ---bash
 sudo apt install nginx-full -y
 ---
 <img width="758" height="140" alt="image" src="https://github.com/user-attachments/assets/cd8bfc1d-8c56-41ea-a853-05530fbf9a1d" />
 
-**Install PHP 8.3 to run scripts**
+3. Install PHP 8.3 to run scripts
 ---bash
 sudo apt install php8.3 php8.3-fpm -y
 ---
 
 #### Step 4 - Nginx Configutation.
-- Config file location:
+1. Config file location
   ---bash
-  /etc/nginx/sites-available/default
-  ---
+   /etc/nginx/sites-available/default
+   
+  
 
 
 
