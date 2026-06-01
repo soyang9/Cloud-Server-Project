@@ -88,7 +88,7 @@ sudo apt install php8.3 php8.3-fpm -y
   ---bash
    /etc/nginx/sites-available/default
 ---
-  
+2.  
 
 
 
