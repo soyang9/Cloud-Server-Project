@@ -230,14 +230,15 @@ function selectRole(role, button) {
 ### Domain and Security Setup
 **1. DNS Configuration (Namecheap)**
 - I bought my domain and linked it to Azure Server:
-- Domain name was connected to the IP address of Azure using Namecheap DNS:
-**Steps:**
+- Domain name was connected to the IP address of Azure using Namecheap DNS.
+- **Steps:**
 - Log in to Namecheap → My Domains → www.sonamict171.com → Advanced DNS
 - Added these records:
 Type	Host	Value	TTL
 A Record	@	20.5.42.159	300
 A Record	www	20.5.42.159	300
-<img width="321" height="73" alt="image" src="https://github.com/user-attachments/assets/767246d7-2c7b-4ea2-83ca-405bce35de33" />
+<img width="389" height="73" alt="image" src="https://github.com/user-attachments/assets/b8f70d54-5b12-44a6-b5a3-918a5a4b61f1" />
+
 - My Azure IP address was given in the Value.
 - An A Record was created so that the domain name points to the Azure virtual machine.
 
@@ -285,3 +286,17 @@ http://www.sonamict171.com
     - Delete reports once resolved
     - Manage all maintenance requests
 - Logout when done
+
+## Reference
+- Electronic Frontier Foundation. (n.d.). Using Certbot for SSL/TLS certificates. Certbot Official Documentation. Retrieved 1 June 2026, from https://certbot.eff.org/docs/using.html
+- Microsoft Corporation. (n.d.). Quickstart: Create a Linux virtual machine using the Azure portal. Microsoft Learn. Retrieved 1 June 2026, from https://learn.microsoft.com/en-us/azure/virtual-machines/linux/create-vm
+- Namecheap Inc. (2026). Domain DNS records management guide. Namecheap Support Knowledgebase. Retrieved 1 June 2026, from https://www.namecheap.com/support/knowledgebase/article.aspx/319/2237/how-to-set-up-dns-records-for-your-domain/
+- Nginx Inc. (n.d.). Nginx beginner’s guide: Installation and configuration. Nginx Documentation. Retrieved 1 June 2026, from https://nginx.org/en/docs/beginners_guide.html
+- The PHP Development Team. (2026). PHP 8.3 language reference and function index. PHP Official Manual. Retrieved 1 June 2026, from https://www.php.net/docs.php
+- Murdoch University. (2026). ICT171 Cloud Server Administration: Unit learning materials, lab 6: Create your cloud server.
+- W3Schools. (n.d.a). CSS complete tutorial: Styling and layout techniques. Retrieved 1 June 2026, from https://www.w3schools.com/css/
+- W3Schools. (n.d.b). HTML5 elements and structure guide. Retrieved 1 June 2026, from https://www.w3schools.com/html/
+- W3Schools. (n.d.c). JavaScript basics and event handling. Retrieved 1 June 2026, from https://www.w3schools.com/js/
+- W3Schools. (n.d.d). PHP file handling and form processing. Retrieved 1 June 2026, from https://www.w3schools.com/php/
+
+
