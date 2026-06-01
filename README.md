@@ -92,6 +92,32 @@ sudo apt install php8.3 php8.3-fpm -y
 2. Bellow is tha default file set by Nginx
    <img width="1247" height="625" alt="image" src="https://github.com/user-attachments/assets/08b3e6ce-21c6-4416-b1c9-945dbba14d15" />
 
+3. Command used to check and restart service.
+```bash
+sudo nginx -t
+sudo systemctl restart nginx
+```
+#### Step 5
+All files are uploaded directly into /var/www/html/:
+1. index.html - Home Page
+2. login.php - Login page with User/Admin buttons.
+3. user_dashboard.php - Users page to submit maintenance issues/reports.
+4. admin_dashboard.php - Admin/maintenance department to manage the reports.
+5. logout.php - logout functionality
+6. user.txt - login details (format: ID:Password:Role)
+7. issues.txt - Stores all submitted reports.
+8. Server_info.html, license.html, contact.html - Extra infomation pages.
+
+**Set File Permission**
+Used these commands so that website can read and write data files:
+```bash
+sudo chmod 666 /var/www/html/user.txt /var/www/html/issues.txt
+sudo chown -R www-data:www-data /var/www/html/
+```
+This steps helps to save login details or reports.
+
+
+
 
 
 
