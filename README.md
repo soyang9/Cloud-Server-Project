@@ -116,56 +116,37 @@ sudo chown -R www-data:www-data /var/www/html/
 ```
 This steps helps to save login details or reports.
 
-
-
-
-
-
-Deployment of Azure Virtual Machine
-- Using Microsoft Azure, an Ubuntu Linux virtual machine was created.
-- Virtual machine was configured manually to host the website and provide remote administration access through SSH.
-  
-#### Virtual Machine Configuration details
-- Cloud provider: Microsoft Azure
-- Operating system: Ubuntu Linux 24.04
-- Web Server Software: Nginx
-- Remote Access Method: SSH
-- Public IP address: 20.5.42.159
-- Domain name: www.sonamict171.com
-
-### 2. Connecting to the Server Using SSH
-Connection to the cloud server was completed using SSH through Windows PowerShell.
-
-Command used:
+### Modifications and Additions
+**1. Login Page (login.php)**
+Added role check: Must click User or Admin button to login
+Added JavaScript: Buttons highlight when selected
+**PHP Code I Added:**
 ```bash
-ssh -i "C:\Users\sonam171\.ssh\Sonamstd_key.pem" azureuser@20.5.42.159
+if ($input_id === $stored_id && $input_pass === $stored_pass && $input_role === $stored_role) {
+    $_SESSION['role'] = $stored_role;
+    header("Location: user_dashboard.php");
+}
 ```
-This command allows secure command-line access to the server for configuration and administration roles.
-
-### 3. Updating the Ubuntu Server
-
-Before installing software, package list was updated using:
+**JavaScript Code I Added:**
 ```bash
-sudo apt update
+function selectRole(role, btn) {
+    document.getElementById('roleInput').value = role;
+    document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+}
+```
+**2. User Dashboard (user_dashboard.php)**
+- Added security: Cannot access page without login
+- Added JavaScript features: Character counter while typing and Confirmation popup before submitting.
+- **Security Code I Added:**
+```bash
+if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'user') {
+    header("Location: login.php");
+    exit;
+}
 ```
 
-### 4. Installation of Nginx Web Server
-Nginx was installed, so that i could host my website online using command:
-```bash
-sudo apt install nginx -y
-```
 
-### 5. Checking Nginx Status
-Following command was used to check wether Nginx was running or not:
-```bash
-sudo systemctl status nginx
-```
-
-### 6. Website File Location
-All the website files were stored in the default Nginx web directory: ```/var/www/html/ ```
-The main homepage file was: index.html
-
-I edited the homepage using: ```bash sudo nano /var/www/html/index.html ```
 
 ### 7. DNS Configuration
 Domain name was connected to the public IP address of Azure using Namecheap DNS.
