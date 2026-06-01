@@ -97,7 +97,7 @@ sudo apt install php8.3 php8.3-fpm -y
 sudo nginx -t
 sudo systemctl restart nginx
 ```
-#### Step 5
+#### Step 5 Uploaded Project Files
 All files are uploaded directly into /var/www/html/:
 1. index.html - Home Page
 2. login.php - Login page with User/Admin buttons.
@@ -127,7 +127,7 @@ if ($input_id === $stored_id && $input_pass === $stored_pass && $input_role === 
     header("Location: user_dashboard.php");
 }
 ```
-**JavaScript Code I Added:**
+**JavaScript Code Added:**
 ```bash
 function selectRole(role, btn) {
     document.getElementById('roleInput').value = role;
@@ -138,20 +138,100 @@ function selectRole(role, btn) {
 **2. User Dashboard (user_dashboard.php)**
 - Added security: Cannot access page without login
 - Added JavaScript features: Character counter while typing and Confirmation popup before submitting.
-- **Security Code I Added:**
+- **Security Code Added:**
 ```bash
 if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'user') {
     header("Location: login.php");
     exit;
 }
 ```
+### Scripting and Coding examples
 
+**1. Html Example - Home Page**
+Given code is an example used in index.html, it creates the navigation menu with five clickable links. It lets users move easily between Home Page, Maintenance Form, Server Info, License and Contact pages.
+```bash
+<div class="info-box">
+    <div class="info"><a href="index.html">Home</a></div>
+    <div class="info"><a href="form.php">Maintenance</a></div>
+    <div class="info"><a href="server.html">Server Information</a></div>
+    <div class="info"><a href="license.html">License</a></div>
+    <div class="info"><a href="contact.html">Contact Us</a></div>
+</div>
+```
+**2. CSS Example: Navigation Box Styling**
+It styles the top header area with a dark blue gradient backgrounf, white text, centre-aligned content and spacing between letters for a clean look. 
+```bash
+header {
+    background: linear-gradient(90deg, #1e2a38, #2c3e50);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+```
+**3. PHP Example: Login Authentication**
+This script used in login.php, reads user credentials from user.txt, verifies the input, and starts a session if valid or not.
+```bash
+<?php
+session_start();
 
+// Read user data from text file
+$users = file("user.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-### 7. DNS Configuration
-Domain name was connected to the public IP address of Azure using Namecheap DNS.
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $input_id = trim($_POST["user_id"]);
+    $input_pass = trim($_POST["password"]);
+    $input_role = trim($_POST["role"]);
 
-Domain name: 
+    // Check each user entry
+    foreach ($users as $user) {
+        list($id, $pass, $role) = explode(":", $user);
+        if ($input_id === $id && $input_pass === $pass && $input_role === $role) {
+            $_SESSION['loggedin'] = true;
+            $_SESSION['role'] = $role;
+            header("Location: " . ($role === "admin" ? "admin_dashboard.php" : "user_dashboard.php"));
+            exit;
+        }
+    }
+    $error = "Invalid ID, password or role selected!";
+}
+?>
+```
+**4. PHP Example: Saving Report**
+This code ensures only logged-in users can access. When form is submitted, saves data, User ID and issue text into issues.txt file
+```bash
+<?php
+session_start();
+if ($_SESSION['role'] !== 'user') { header("Location: login.php"); exit; }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["issue"])) {
+    $data = date("Y-m-d H:i:s") . " | " . $_SESSION['user_id'] . " | " . $_POST["issue"] . PHP_EOL;
+    file_put_contents("issues.txt", $data, FILE_APPEND);
+}
+?>
+```
+
+**5. JavaScript Example: Role Selection and UI Feedback**
+This script is also used in login.php, which helps in handling role selection and visual highlighting of buttons.
+```bash
+// Set selected role and highlight active button
+function selectRole(role, button) {
+    // Store selected role in hidden input
+    document.getElementById("roleInput").value = role;
+
+    // Remove active style from all buttons
+    const buttons = document.querySelectorAll(".role-btn");
+    buttons.forEach(btn => btn.classList.remove("active"));
+
+    // Add active style to clicked button
+    button.classList.add("active");
+}
+```
+### Domain and Security Setup
+**1. DNS Configuration (Namecheap)**
+I bought my domain and linked it to Azure Server:
+1. Domain name was connected to the IP address of Azure using Namecheap DNS:
+   Domain name: 
 ```text
 www.sonamict171.com
 ```
@@ -161,8 +241,15 @@ Public IP address:
 ```
 An A Record was created so that the domain name points to the Azure virtual machine.
 
-### 8. Testing the Website
-After configuring DNS, my website was tested using a web browse.
+**2. Enabled HTTPS (Secure Website):**
+   Installed free SSL certificate to show padlock icon using the command:
+```bash
+    sudo apt install certbot python3-certbot-nginx -y
+    sudo certbot --nginx -d sonamict171.com -d www.sonamict171.com
+```
+
+**3. Testing the Website**
+After configuring DNS, my website was tested using a web browser.
 
 I confirmed that the website was accessible:
 
@@ -171,36 +258,30 @@ http://www.sonamict171.com
 ```
 I also tested the website using the Azure public IP address.
 
-### 9. Website Development
-
-The website was developed using:
-
-- HTML
-- CSS
-- PHP
-
-The website contains:
-
-- Home page
-- Maintenance page #reporting maintainance for the users and managing the reported issues by the admin(maintainance team)
-- Server information page
-- License page
-- Contact Us page
-
-### 10. Script / Code Example
-
-Example: HTML navigation code used in the website:
-
-```html
-<a href="index.html">Home</a> |
-<a href="login.php">Maintenance</a> |
-<a href="server_info.html">Server Information</a> |
-<a href="license.html">License</a>
-<a href="contact">Contact Us</a>
-```
-This HTML code creates the navigation menu for the website and allows users to move between different pages of the maintenance service system.
-
-The website was developed using HTML and CSS and php(8.3) and hosted on an Azure Ubuntu Linux virtual machine using the Nginx web server.
-
-
-
+## How to Use the System
+**1. Access the Website**
+- Open any web browser
+- Type in address: http://www.sonamict171.com, You will see the Home page with 5 navigation tabs
+**2. Go to Maintenance Section**
+- From the navigation menu, click the Maintenance tab
+- This opens the Maintenance Submission Form (login.php)
+**3. User / Admin Login**
+**IF YOU ARE A USER:**
+- On Maintenance page, click User button
+- Enter your User ID and Password
+- Click Login → you will be directed to User Dashboard
+  Here you can:
+    - Fill in issue type, location and description
+- Click Submit Report
+- Your report is saved to the system
+- Logout when done
+- 
+**IF YOU ARE AN ADMIN:**
+- On Maintenance page, click Admin button
+- Enter your Admin ID and Password
+- Click Login → you will be directed to Admin Dashboard
+ Here you can:
+    - View all submitted reports (date, type, location, description)
+    - Delete reports once resolved
+    - Manage all maintenance requests
+- Logout when done
