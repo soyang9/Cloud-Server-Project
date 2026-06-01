@@ -88,7 +88,9 @@ sudo apt install php8.3 php8.3-fpm -y
   ---bash
    /etc/nginx/sites-available/default
 ---
-2.  
+2. Bellow is tha default file set by Nginx
+   <img width="1247" height="625" alt="image" src="https://github.com/user-attachments/assets/08b3e6ce-21c6-4416-b1c9-945dbba14d15" />
+
 
 
 
