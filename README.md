@@ -230,7 +230,7 @@ function selectRole(role, button) {
 ### Domain and Security Setup
 **1. DNS Configuration (Namecheap)**
 - I bought my domain and linked it to Azure Server:
-- 1. Domain name was connected to the IP address of Azure using Namecheap DNS:
+- Domain name was connected to the IP address of Azure using Namecheap DNS:
 - Domain name: 
 ```text
 www.sonamict171.com
