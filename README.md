@@ -231,14 +231,14 @@ function selectRole(role, button) {
 **1. DNS Configuration (Namecheap)**
 - I bought my domain and linked it to Azure Server:
 - Domain name was connected to the IP address of Azure using Namecheap DNS:
-- Domain name: 
-```text
-www.sonamict171.com
-```
-Public IP address:
-```text
-20.5.42.159
-```
+**Steps:**
+- Log in to Namecheap → My Domains → www.sonamict171.com → Advanced DNS
+- Added these records:
+Type	Host	Value	TTL
+A Record	@	20.5.42.159	300
+A Record	www	20.5.42.159	300
+<img width="321" height="73" alt="image" src="https://github.com/user-attachments/assets/767246d7-2c7b-4ea2-83ca-405bce35de33" />
+- My Azure IP address was given in the Value.
 - An A Record was created so that the domain name points to the Azure virtual machine.
 
 **2. Enabled HTTPS (Secure Website):**
