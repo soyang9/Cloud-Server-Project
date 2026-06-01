@@ -49,9 +49,9 @@ It focuses on cloud deployment and infrastracture as a service(IaaS).
 #### Step 2 - Connecting to the Server using SSH
 - Connection to the cloud server was completed using SSH through Windows PowerShell.
 - Command used:
----bash
+```bash
 ssh -i "C:\Users\sonam171\.ssh\Sonamstd_key.pem" azureuser@20.5.42.159
----
+```
 
 This command allows secure command-line access to the server for configuration and administration roles.
 
