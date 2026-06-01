@@ -56,38 +56,39 @@ ssh -i "C:\Users\sonam171\.ssh\Sonamstd_key.pem" azureuser@20.5.42.159
 This command allows secure command-line access to the server for configuration and administration roles.
 
 <img width="1205" height="763" alt="image" src="https://github.com/user-attachments/assets/f66da83d-abad-43b5-98a7-75ea0b102495" />
+                           
                             **Steps**
 1. Open Terminal / PowerShell → go to folder where you saved `.pem` key
 2. Copy the path.
 3. Run command:
----bash
+```bash
 ssh -i "key.pem(folder path)" azureuser@server ip address
----
+```
 4. Now you are logged into your cloud server.
    
 #### Step 3 - Installation of required Software
 1. Update system
----bash
+```bash
 sudo apt update
----
+```
 <img width="1182" height="426" alt="image" src="https://github.com/user-attachments/assets/7101e983-e28c-411d-9c3c-3e46ef0b5f78" />
 
 2. Install Nginx web server
----bash
+```bash
 sudo apt install nginx-full -y
----
+```
 <img width="758" height="140" alt="image" src="https://github.com/user-attachments/assets/cd8bfc1d-8c56-41ea-a853-05530fbf9a1d" />
 
 3. Install PHP 8.3 to run scripts
----bash
+```bash
 sudo apt install php8.3 php8.3-fpm -y
----
+```
 
 #### Step 4 - Nginx Configutation.
 1. Config file location
-  ---bash
+```bash
    /etc/nginx/sites-available/default
----
+```
 2. Bellow is tha default file set by Nginx
    <img width="1247" height="625" alt="image" src="https://github.com/user-attachments/assets/08b3e6ce-21c6-4416-b1c9-945dbba14d15" />
 
