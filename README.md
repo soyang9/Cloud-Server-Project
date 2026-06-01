@@ -98,7 +98,7 @@ sudo nginx -t
 sudo systemctl restart nginx
 ```
 #### Step 5 Uploaded Project Files
-All files are uploaded directly into /var/www/html/:
+- All files are uploaded directly into /var/www/html/:
 1. index.html - Home Page
 2. login.php - Login page with User/Admin buttons.
 3. user_dashboard.php - Users page to submit maintenance issues/reports.
@@ -109,7 +109,7 @@ All files are uploaded directly into /var/www/html/:
 8. Server_info.html, license.html, contact.html - Extra infomation pages.
 
 **Set File Permission**
-Used these commands so that website can read and write data files:
+- Used these commands so that website can read and write data files:
 ```bash
 sudo chmod 666 /var/www/html/user.txt /var/www/html/issues.txt
 sudo chown -R www-data:www-data /var/www/html/
@@ -148,7 +148,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'user') {
 ### Scripting and Coding examples
 
 **1. Html Example - Home Page**
-Given code is an example used in index.html, it creates the navigation menu with five clickable links. It lets users move easily between Home Page, Maintenance Form, Server Info, License and Contact pages.
+- Given code is an example used in index.html, it creates the navigation menu with five clickable links. It lets users move easily between Home Page, Maintenance Form, Server Info, License and Contact pages.
 ```bash
 <div class="info-box">
     <div class="info"><a href="index.html">Home</a></div>
@@ -159,7 +159,7 @@ Given code is an example used in index.html, it creates the navigation menu with
 </div>
 ```
 **2. CSS Example: Navigation Box Styling**
-It styles the top header area with a dark blue gradient backgrounf, white text, centre-aligned content and spacing between letters for a clean look. 
+- It styles the top header area with a dark blue gradient backgrounf, white text, centre-aligned content and spacing between letters for a clean look. 
 ```bash
 header {
     background: linear-gradient(90deg, #1e2a38, #2c3e50);
@@ -170,7 +170,7 @@ header {
 }
 ```
 **3. PHP Example: Login Authentication**
-This script used in login.php, reads user credentials from user.txt, verifies the input, and starts a session if valid or not.
+- This script used in login.php, reads user credentials from user.txt, verifies the input, and starts a session if valid or not.
 ```bash
 <?php
 session_start();
@@ -198,7 +198,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 ```
 **4. PHP Example: Saving Report**
-This code ensures only logged-in users can access. When form is submitted, saves data, User ID and issue text into issues.txt file
+- This code ensures only logged-in users can access. When form is submitted, saves data, User ID and issue text into issues.txt file
 ```bash
 <?php
 session_start();
@@ -212,7 +212,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["issue"])) {
 ```
 
 **5. JavaScript Example: Role Selection and UI Feedback**
-This script is also used in login.php, which helps in handling role selection and visual highlighting of buttons.
+- This script is also used in login.php, which helps in handling role selection and visual highlighting of buttons.
 ```bash
 // Set selected role and highlight active button
 function selectRole(role, button) {
@@ -229,9 +229,9 @@ function selectRole(role, button) {
 ```
 ### Domain and Security Setup
 **1. DNS Configuration (Namecheap)**
-I bought my domain and linked it to Azure Server:
-1. Domain name was connected to the IP address of Azure using Namecheap DNS:
-   Domain name: 
+- I bought my domain and linked it to Azure Server:
+- 1. Domain name was connected to the IP address of Azure using Namecheap DNS:
+- Domain name: 
 ```text
 www.sonamict171.com
 ```
@@ -239,24 +239,24 @@ Public IP address:
 ```text
 20.5.42.159
 ```
-An A Record was created so that the domain name points to the Azure virtual machine.
+- An A Record was created so that the domain name points to the Azure virtual machine.
 
 **2. Enabled HTTPS (Secure Website):**
-   Installed free SSL certificate to show padlock icon using the command:
+- Installed free SSL certificate to show padlock icon using the command:
 ```bash
     sudo apt install certbot python3-certbot-nginx -y
     sudo certbot --nginx -d sonamict171.com -d www.sonamict171.com
 ```
 
 **3. Testing the Website**
-After configuring DNS, my website was tested using a web browser.
+- After configuring DNS, my website was tested using a web browser.
 
-I confirmed that the website was accessible:
+- I confirmed that the website was accessible:
 
 ```text
 http://www.sonamict171.com
 ```
-I also tested the website using the Azure public IP address.
+- I also tested the website using the Azure public IP address.
 
 ## How to Use the System
 **1. Access the Website**
@@ -275,7 +275,7 @@ I also tested the website using the Azure public IP address.
 - Click Submit Report
 - Your report is saved to the system
 - Logout when done
-- 
+  
 **IF YOU ARE AN ADMIN:**
 - On Maintenance page, click Admin button
 - Enter your Admin ID and Password
