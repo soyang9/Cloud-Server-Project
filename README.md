@@ -324,11 +324,12 @@ URL Redirect Record	20.5.42.159	https://www.sonamict171.com/
 - An A Record was created so that the domain name points to the Azure virtual machine.
 
 **2. Enabled HTTPS (Secure Website):**
-- Installed free SSL certificate to show padlock icon using the command:
+- A free SSL certificate was installed using Certbot to secure the website and enable HTTPS by using the command:
 ```bash
-    sudo apt install certbot python3-certbot-nginx -y
     sudo certbot --nginx -d sonamict171.com -d www.sonamict171.com
 ```
+<img width="1185" height="455" alt="image" src="https://github.com/user-attachments/assets/f4d09e8e-7fe9-439b-b5c6-a435856258fa" />
+
 
 **3. Testing the Website**
 - After configuring DNS, my website was tested using a web browser.
@@ -336,9 +337,13 @@ URL Redirect Record	20.5.42.159	https://www.sonamict171.com/
 - I confirmed that the website was accessible:
 
 ```text
-http://www.sonamict171.com
+https://www.sonamict171.com
 ```
+<img width="1827" height="966" alt="image" src="https://github.com/user-attachments/assets/0c46962b-ef7b-4df6-9ea3-39d18f92f309" />
+
 - I also tested the website using the Azure public IP address.
+  <img width="1889" height="902" alt="image" src="https://github.com/user-attachments/assets/a7300f1e-91d3-40b1-acfe-6dca81e79e85" />
+
 
 ## How to Use the System
 - **1. Access the Website**
