@@ -315,11 +315,12 @@ if (!file_exists('issues.txt') || filesize('issues.txt') === 0) {
 - **Steps:**
 - Log in to Namecheap → My Domains → www.sonamict171.com → Advanced DNS
 - Added these records:
-Type	            Host	            Value	                        TTL
-A Record	        www	                20.5.42.159	                    Automatic
-URL Redirect record	20.5.42.159	        https://www.sonamict171.com
+Type	Host	Value	TTL
+A Record	www	20.5.42.159	Automatic
+URL Redirect Record	20.5.42.159	https://www.sonamict171.com/	
+<img width="602" height="112" alt="image" src="https://github.com/user-attachments/assets/2aabb81a-46d7-49d5-b4dc-673992d4b87d" />
 
-- My Azure IP address was given in the Value.
+- My Azure IP address and domain name was given in the Value.
 - An A Record was created so that the domain name points to the Azure virtual machine.
 
 **2. Enabled HTTPS (Secure Website):**
