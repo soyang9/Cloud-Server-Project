@@ -276,6 +276,38 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
 }
 ?>
  ```
+**6. PHP - Admin dashboard and issue management**
+- This script provides a secure administrator dashboard.
+- It reads maintenance requests from issues.txt, displays them for review, and allows administrators to mark completed issues for removal from the system.
+ ```bash
+<?php
+session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'admin') {
+    header("Location: login.php");
+    exit;
+}
+
+if (isset($_GET['del'])) {
+    $all = file('issues.txt', FILE_IGNORE_NEW_LINES);
+    unset($all[$_GET['del']]);
+    file_put_contents('issues.txt', implode("\n", $all));
+    header("Location: admin_dashboard.php");
+    exit;
+}
+
+if (!file_exists('issues.txt') || filesize('issues.txt') === 0) {
+    echo "No issues have been reported yet.";
+} else {
+    $records = array_reverse(file('issues.txt'), true);
+    foreach ($records as $i => $r) {
+        echo htmlspecialchars($r);
+    }
+}
+?>
+ ```
 ### Domain and Security Setup
 **1. DNS Configuration (Namecheap)**
 - I bought my domain and linked it to Azure Server:
