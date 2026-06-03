@@ -247,7 +247,7 @@ function selectRole(role, btn) {
     btn.classList.add('active');
 }
 ```
-**5. PHP – User Dashboard & Report Submission (user_dashboard.php)**
+**5. PHP Example – User Dashboard & Report Submission (user_dashboard.php)**
 - This PHP script performs security validation, processes maintenance request form submissions, formats the collected data with timestamps and user information, saves the records to a text file (issues.txt), and provides feedback to the user upon successful submission.
  ```bash
 <?php
@@ -276,7 +276,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
 }
 ?>
  ```
-**6. PHP - Admin dashboard and issue management**
+**6. PHP Example - Admin dashboard and issue management (admin_dashboard.php)**
 - This script provides a secure administrator dashboard.
 - It reads maintenance requests from issues.txt, displays them for review, and allows administrators to mark completed issues for removal from the system.
  ```bash
