@@ -326,7 +326,8 @@ URL Redirect Record	20.5.42.159	https://www.sonamict171.com/
 **2. Enabled HTTPS (Secure Website):**
 - A free SSL certificate was installed using Certbot to secure the website and enable HTTPS by using the command:
 ```bash
-    sudo certbot --nginx -d sonamict171.com -d www.sonamict171.com
+- sudo apt install certbot python3-certbot-nginx -y
+- sudo certbot --nginx -d sonamict171.com -d www.sonamict171.com
 ```
 <img width="1185" height="455" alt="image" src="https://github.com/user-attachments/assets/f4d09e8e-7fe9-439b-b5c6-a435856258fa" />
 
