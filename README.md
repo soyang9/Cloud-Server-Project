@@ -167,7 +167,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'user') {
 ```bash
 <div class="info-box">
     <div class="info"><a href="index.html">Home</a></div>
-    <div class="info"><a href="form.php">Maintenance</a></div>
+    <div class="info"><a href="login.php">Maintenance</a></div>
     <div class="info"><a href="server.html">Server Information</a></div>
     <div class="info"><a href="license.html">License</a></div>
     <div class="info"><a href="contact.html">Contact Us</a></div>
