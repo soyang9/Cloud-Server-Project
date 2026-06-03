@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact Us</title>
+<style>
+    body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(135deg, #e3f2fd, #f5f7fb);
+        color: #222;
+    }
+    header {
+        background: linear-gradient(90deg, #1e2a38, #2c3e50);
+        color: white;
+        padding: 30px;
+        text-align: center;
+        letter-spacing: 1px;
+    }
+    header h1 { margin: 0; font-size: 28px; }
+    .container { width: 80%; margin: 40px auto; }
+    .card {
+        background: white;
+        padding: 30px;
+        margin-bottom: 25px;
+        border-radius: 18px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+    .info-box {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 15px;
+        text-align: center;
+        margin-bottom:30px;
+    }
+    .info {
+        background: #eef2f7;
+        padding:22px;
+        border-radius:12px;
+        font-weight:bold;
+        transition:0.3s;
+    }
+    .info:hover { background: #dbe7f5; transform: translateY(-3px); }
+    .info a { text-decoration:none; color:#1e2a38; font-size:18px; }
+    h2 {
+        color: #1e2a38;
+        border-left: 5px solid #4facfe;
+        padding-left: 10px;
+        margin-bottom: 20px;
+    }
+    footer {
+        text-align: center;
+        padding: 18px;
+        background: #1e2a38;
+        color: white;
+        margin-top: 40px;
+        font-size: 14px;
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1>ICT171 Cloud Server Project</h1>
+    <h1>Contact Us</h1>
+</header>
+<div class="container">
+    <div class="info-box">
+        <div class="info"><a href="index.html">Home</a></div>
+        <div class="info"><a href="login.php">Maintenance</a></div>
+        <div class="info"><a href="server_info.html">Server Information</a></div>
+        <div class="info"><a href="license.html">License</a></div>
+        <div class="info"><a href="contact.html">Contact Us</a></div>
+    </div>
+
+    <div class="card">
+        <h2>Get in Touch</h2>
+        <p><strong>Student Name:</strong> Sonam Yangchen</p>
+        <p><strong>Student ID:</strong> 35867346</p>
+        <p><strong>Project:</strong> ICT171 Cloud Server Project</p>
+        <p><strong>Hosting:</strong> Microsoft Azure Virtual Machine</p>
+        <p><strong>IP Address:</strong> 20.5.42.159</p>
+        <p><strong>Email:</strong> 35867346@student.murdoch.edu.au</p>
+    </div>
+</div>
+<footer>© 2026 Sonam Yangchen | Hosted on Cloud VM (Nginx Server)</footer>
+</body>
+</html>
