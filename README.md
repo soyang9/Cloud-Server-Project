@@ -189,59 +189,93 @@ header {
 ```bash
 <?php
 session_start();
+error_reporting(0);
 
-// Read user data from text file
-$users = file("user.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $input_id = trim($_POST['user_id']);
+    $input_pass = trim($_POST['password']);
+    $input_role = trim($_POST['role']);
+    $login_ok = false;
+    $user_role = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $input_id = trim($_POST["user_id"]);
-    $input_pass = trim($_POST["password"]);
-    $input_role = trim($_POST["role"]);
+    $lines = file(__DIR__ . '/user.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-    // Check each user entry
-    foreach ($users as $user) {
-        list($id, $pass, $role) = explode(":", $user);
-        if ($input_id === $id && $input_pass === $pass && $input_role === $role) {
-            $_SESSION['loggedin'] = true;
-            $_SESSION['role'] = $role;
-            header("Location: " . ($role === "admin" ? "admin_dashboard.php" : "user_dashboard.php"));
-            exit;
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) continue;
+        $parts = explode(":", $line);
+        if (count($parts) === 3) {
+            $stored_id   = trim($parts[0]);
+            $stored_pass = trim($parts[1]);
+            $stored_role = trim($parts[2]);
+
+            if ($input_id === $stored_id && $input_pass === $stored_pass && $input_role === $stored_role) {
+                $login_ok = true;
+                $user_role = $stored_role;
+                break;
+            }
         }
     }
-    $error = "Invalid ID, password or role selected!";
+
+    if ($login_ok) {
+        $_SESSION['user'] = $input_id;
+        $_SESSION['role'] = $user_role;
+        $_SESSION['loggedin'] = true;
+
+        if ($user_role === 'user') {
+            header("Location: user_dashboard.php");
+            exit;
+        } elseif ($user_role === 'admin') {
+            header("Location: admin_dashboard.php");
+            exit;
+        }
+    } else {
+        $error = "❌ Wrong ID / Password OR wrong button clicked — try again";
+    }
 }
 ?>
 ```
-**4. PHP Example: Saving Report**
-- This code ensures only logged-in users can access. When form is submitted, saves data, User ID and issue text into issues.txt file
-```bash
-<?php
-session_start();
-if ($_SESSION['role'] !== 'user') { header("Location: login.php"); exit; }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["issue"])) {
-    $data = date("Y-m-d H:i:s") . " | " . $_SESSION['user_id'] . " | " . $_POST["issue"] . PHP_EOL;
-    file_put_contents("issues.txt", $data, FILE_APPEND);
-}
-?>
-```
-
-**5. JavaScript Example: Role Selection and UI Feedback**
+**4. JavaScript Example: Role Selection and UI Feedback (login.php)**
 - This script is also used in login.php, which helps in handling role selection and visual highlighting of buttons.
 ```bash
-// Set selected role and highlight active button
-function selectRole(role, button) {
-    // Store selected role in hidden input
-    document.getElementById("roleInput").value = role;
+function selectRole(role, btn) {
+    document.getElementById('roleInput').value = role;
+    document.getElementById('roleText').textContent = role.toUpperCase();
+    document.getElementById('selectedNote').style.display = 'block';
 
-    // Remove active style from all buttons
-    const buttons = document.querySelectorAll(".role-btn");
-    buttons.forEach(btn => btn.classList.remove("active"));
-
-    // Add active style to clicked button
-    button.classList.add("active");
+    document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
 }
 ```
+**5. PHP – User Dashboard & Report Submission (user_dashboard.php)**
+- This PHP script performs security validation, processes maintenance request form submissions, formats the collected data with timestamps and user information, saves the records to a text file (issues.txt), and provides feedback to the user upon successful submission.
+ ```bash
+<?php
+session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'user') {
+    header("Location: login.php");
+    exit;
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
+    $category = $_POST['category'];
+    $location = $_POST['location'];
+    $description = $_POST['description'];
+
+    $data = date('Y-m-d H:i:s') . " | Category: " . $category .
+            " | Location: " . $location .
+            " | Description: " . $description .
+            " | Reported By: " . $_SESSION['user'] . "\n";
+
+    file_put_contents('issues.txt', $data, FILE_APPEND);
+
+    $success = "✅ Issue submitted successfully!";
+}
+?>
+ ```
 ### Domain and Security Setup
 **1. DNS Configuration (Namecheap)**
 - I bought my domain and linked it to Azure Server:
