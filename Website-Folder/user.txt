@@ -1,0 +1,13 @@
+# FORMAT: UserID:Password:Role
+# Role MUST be exactly: user OR admin
+# Add/remove lines below as you wish — DO NOT add spaces!
+
+STD001:pass123:user
+STD002:pass456:user
+student@uni.edu:student123:user
+staff@uni.edu:staff456:user
+
+maint@uni.edu:admin123:admin
+facility@uni.edu:facility456:admin
+admin1:123456:admin
+user1:123456:user
