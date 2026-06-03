@@ -341,14 +341,14 @@ http://www.sonamict171.com
 - I also tested the website using the Azure public IP address.
 
 ## How to Use the System
-**1. Access the Website**
+- **1. Access the Website**
 - Open any web browser
 - Type in address: http://www.sonamict171.com, You will see the Home page with 5 navigation tabs
-**2. Go to Maintenance Section**
+- **2. Go to Maintenance Section**
 - From the navigation menu, click the Maintenance tab
 - This opens the Maintenance Submission Form (login.php)
-**3. User / Admin Login**
-**IF YOU ARE A USER:**
+- **3. User / Admin Login**
+- **IF YOU ARE A USER:**
 - On Maintenance page, click User button
 - Enter your User ID and Password
 - Click Login → you will be directed to User Dashboard
