@@ -118,8 +118,14 @@ This steps helps to save login details or reports.
 
 ### Modifications and Additions
 **1. Login Page (login.php)**
-Added role check: Must click User or Admin button to login
-Added JavaScript: Buttons highlight when selected
+- Added role check: User must click either “User” or “Admin” button before entering credentials.
+- Added JavaScript: Buttons highlight when selected, shows confirmation message, and stores role in hidden input (W3School, n.d.c)
+- Strict authentication logic: Verifies ID, Password, and Selected Role match stored data.
+- Session management: Start session, stores user, role, and logged in statis on success.
+- Automatic redirection: Sends user to user_dashboard.php and admin to admin_dashboard.php
+- Clear error message: “Wrong ID / Password or wrong button clicked- try again” displayed for failed login
+- Custom styling: Embedded CSS matching site theme, responsive card layout, hover and active status. 
+
 **PHP Code I Added:**
 ```bash
 if ($input_id === $stored_id && $input_pass === $stored_pass && $input_role === $stored_role) {
@@ -136,8 +142,10 @@ function selectRole(role, btn) {
 }
 ```
 **2. User Dashboard (user_dashboard.php)**
-- Added security: Cannot access page without login
-- Added JavaScript features: Character counter while typing and Confirmation popup before submitting.
+- Added security: Cannot access page without active login session
+- Added JavaScript features: Character counter while typing and confirmation popup before submitting.
+- Automatic timestamp added to every report
+- Success message displayed after submission
 - **Security Code Added:**
 ```bash
 if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'user') {
@@ -145,6 +153,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'user') {
     exit;
 }
 ```
+**3. Admin Dashboard (admin_dashboard.php)**
+- Restricted access: Only admin role permitted
+- Displays all reports sorted by submission time
+- Full details visible: Date, User ID, Issue Type, Location, Description
+- Delete functionality to remove resolved reports
+- Data read directly from issues.txt file
+
 ### Scripting and Coding examples
 
 **1. Html Example - Home Page**
