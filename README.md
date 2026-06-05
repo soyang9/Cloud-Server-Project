@@ -5,6 +5,7 @@
 - **Course ID:** ICT171 - Cloud Server Administration
 - **Submission:** 2nd June 2026
 - **Hosting Platform:** Microsoft Azure (IaaS Virtual Machine)
+- **Video Link:** https://drive.google.com/file/d/1D4LOYLgxLraPbeugP5krOxNdUAkRG4st/view?usp=sharing
 
 ## Website Links
 - **Public IP Address:** http://20.5.42.159
