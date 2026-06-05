@@ -79,7 +79,15 @@ sudo apt install nginx-full -y
 ```
 <img width="758" height="140" alt="image" src="https://github.com/user-attachments/assets/cd8bfc1d-8c56-41ea-a853-05530fbf9a1d" />
 
-3. Install PHP 8.3 to run scripts
+3. Check nginx status: Active and running using command:
+```bash
+sudo systemctl nginx
+```
+   <img width="889" height="217" alt="image" src="https://github.com/user-attachments/assets/b682670b-c388-43fa-aa14-38406bae7e4e" />
+
+
+
+5. Install PHP 8.3 to run scripts
 ```bash
 sudo apt install php8.3 php8.3-fpm -y
 ```
@@ -374,6 +382,16 @@ https://www.sonamict171.com
     - Delete reports once resolved
     - Manage all maintenance requests
 - Logout when done
+
+## Future Improvement
+- Database Integration: Move from text files to MySQL/SQLite for better performance, scalability, and data management.
+- Email Notifications: Send alerts to admins for new reports and updates to users when issues are resolved.
+- Status Tracking: Add status labels like Pending, In Progress, Completed for better workflow visibility.
+- User History: Let users view their own past reports and current status.
+- File Uploads: Allow images or documents to be attached for clearer issue reporting.
+- Search & Filter: Add search and filter options in admin panel for faster management.
+- Security Improvements: Implement password hashing, input sanitisation, and CSRF protection.
+- Mobile Optimization: Improve design for better usability on phones and tablets.
 
 ## Reference
 - Electronic Frontier Foundation. (n.d.). Using Certbot for SSL/TLS certificates. Certbot Official Documentation. Retrieved 1 June 2026, from https://certbot.eff.org/docs/using.html
