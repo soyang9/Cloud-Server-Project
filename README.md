@@ -1,14 +1,14 @@
 # ICT171 Cloud Server Project: Cloud-based Maintenance Service System
 
-**Student Name:** Sonam Yangchen
-**Student ID:** 35867346
-**Course ID:** ICT171 - Cloud Server Administration
-**Submission:** 2nd June 2026
-**Hosting Platform:** Microsoft Azure (IaaS Virtual Machine)
+- **Student Name:** Sonam Yangchen
+- **Student ID:** 35867346
+- **Course ID:** ICT171 - Cloud Server Administration
+- **Submission:** 2nd June 2026
+- **Hosting Platform:** Microsoft Azure (IaaS Virtual Machine)
 
 ## Website Links
-**Public IP Address:** http://20.5.42.159
-**Domain Name:** www.sonamict171.com
+- **Public IP Address:** http://20.5.42.159
+- **Domain Name:** www.sonamict171.com
 
 ## Project Overview
 - This project is a Cloud-based Maintenance Service System hosted using Microsoft Azure where users can submit maintenance issues online, example: broken lights, AC repair or any other maintenance isuues.
